@@ -1,0 +1,695 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+.CodeMirror { height: auto; }
+.CodeMirror.cm-s-inner { background: inherit; }
+.CodeMirror-scroll { overflow: auto hidden; z-index: 3; }
+.CodeMirror-gutter-filler, .CodeMirror-scrollbar-filler { background-color: rgb(255, 255, 255); }
+.CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); background: inherit; white-space: nowrap; }
+.CodeMirror-linenumber { padding: 0px 3px 0px 5px; text-align: right; color: rgb(153, 153, 153); }
+.cm-s-inner .cm-keyword { color: rgb(119, 0, 136); }
+.cm-s-inner .cm-atom, .cm-s-inner.cm-atom { color: rgb(34, 17, 153); }
+.cm-s-inner .cm-number { color: rgb(17, 102, 68); }
+.cm-s-inner .cm-def { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-variable { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-variable-2 { color: rgb(0, 85, 170); }
+.cm-s-inner .cm-variable-3 { color: rgb(0, 136, 85); }
+.cm-s-inner .cm-string { color: rgb(170, 17, 17); }
+.cm-s-inner .cm-property { color: rgb(0, 0, 0); }
+.cm-s-inner .cm-operator { color: rgb(152, 26, 26); }
+.cm-s-inner .cm-comment, .cm-s-inner.cm-comment { color: rgb(170, 85, 0); }
+.cm-s-inner .cm-string-2 { color: rgb(255, 85, 0); }
+.cm-s-inner .cm-meta { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-qualifier { color: rgb(85, 85, 85); }
+.cm-s-inner .cm-builtin { color: rgb(51, 0, 170); }
+.cm-s-inner .cm-bracket { color: rgb(153, 153, 119); }
+.cm-s-inner .cm-tag { color: rgb(17, 119, 0); }
+.cm-s-inner .cm-attribute { color: rgb(0, 0, 204); }
+.cm-s-inner .cm-header, .cm-s-inner.cm-header { color: rgb(0, 0, 255); }
+.cm-s-inner .cm-quote, .cm-s-inner.cm-quote { color: rgb(0, 153, 0); }
+.cm-s-inner .cm-hr, .cm-s-inner.cm-hr { color: rgb(153, 153, 153); }
+.cm-s-inner .cm-link, .cm-s-inner.cm-link { color: rgb(0, 0, 204); }
+.cm-negative { color: rgb(221, 68, 68); }
+.cm-positive { color: rgb(34, 153, 34); }
+.cm-header, .cm-strong { font-weight: 700; }
+.cm-del { text-decoration: line-through; }
+.cm-em { font-style: italic; }
+.cm-link { text-decoration: underline; }
+.cm-error { color: red; }
+.cm-invalidchar { color: red; }
+.cm-constant { color: rgb(38, 139, 210); }
+.cm-defined { color: rgb(181, 137, 0); }
+div.CodeMirror span.CodeMirror-matchingbracket { color: rgb(0, 255, 0); }
+div.CodeMirror span.CodeMirror-nonmatchingbracket { color: rgb(255, 34, 34); }
+.cm-s-inner .CodeMirror-activeline-background { background: inherit; }
+.CodeMirror { position: relative; overflow: hidden; }
+.CodeMirror-scroll { height: 100%; outline: 0px; position: relative; box-sizing: content-box; background: inherit; }
+.CodeMirror-sizer { position: relative; }
+.CodeMirror-gutter-filler, .CodeMirror-hscrollbar, .CodeMirror-scrollbar-filler, .CodeMirror-vscrollbar { position: absolute; z-index: 6; display: none; outline: 0px; }
+.CodeMirror-vscrollbar { right: 0px; top: 0px; overflow: hidden; }
+.CodeMirror-hscrollbar { bottom: 0px; left: 0px; overflow: auto hidden; }
+.CodeMirror-scrollbar-filler { right: 0px; bottom: 0px; }
+.CodeMirror-gutter-filler { left: 0px; bottom: 0px; }
+.CodeMirror-gutters { position: absolute; left: 0px; top: 0px; padding-bottom: 10px; z-index: 3; overflow-y: hidden; }
+.CodeMirror-gutter { white-space: normal; height: 100%; box-sizing: content-box; padding-bottom: 30px; margin-bottom: -32px; display: inline-block; }
+.CodeMirror-gutter-wrapper { position: absolute; z-index: 4; background: 0px 0px !important; border: none !important; }
+.CodeMirror-gutter-background { position: absolute; top: 0px; bottom: 0px; z-index: 4; }
+.CodeMirror-gutter-elt { position: absolute; cursor: default; z-index: 4; }
+.CodeMirror-lines { cursor: text; }
+.CodeMirror pre { border-radius: 0px; border-width: 0px; background: 0px 0px; font-family: inherit; font-size: inherit; margin: 0px; white-space: pre; overflow-wrap: normal; color: inherit; z-index: 2; position: relative; overflow: visible; }
+.CodeMirror-wrap pre { overflow-wrap: break-word; white-space: pre-wrap; word-break: normal; }
+.CodeMirror-code pre { border-right: 30px solid transparent; width: fit-content; }
+.CodeMirror-wrap .CodeMirror-code pre { border-right: none; width: auto; }
+.CodeMirror-linebackground { position: absolute; inset: 0px; z-index: 0; }
+.CodeMirror-linewidget { position: relative; z-index: 2; overflow: auto; }
+.CodeMirror-wrap .CodeMirror-scroll { overflow-x: hidden; }
+.CodeMirror-measure { position: absolute; width: 100%; height: 0px; overflow: hidden; visibility: hidden; }
+.CodeMirror-measure pre { position: static; }
+.CodeMirror div.CodeMirror-cursor { position: absolute; visibility: hidden; border-right: none; width: 0px; }
+.CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+.CodeMirror-focused div.CodeMirror-cursor { visibility: inherit; }
+.cm-searching { background: rgba(255, 255, 0, 0.4); }
+span.cm-underlined { text-decoration: underline; }
+span.cm-strikethrough { text-decoration: line-through; }
+.cm-tw-syntaxerror { color: rgb(255, 255, 255); background-color: rgb(153, 0, 0); }
+.cm-tw-deleted { text-decoration: line-through; }
+.cm-tw-header5 { font-weight: 700; }
+.cm-tw-listitem:first-child { padding-left: 10px; }
+.cm-tw-box { border-style: solid; border-right-width: 1px; border-bottom-width: 1px; border-left-width: 1px; border-color: inherit; border-top-width: 0px !important; }
+.cm-tw-underline { text-decoration: underline; }
+@media print {
+  .CodeMirror div.CodeMirror-cursor { visibility: hidden; }
+}
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    /* border-left: 4px solid #dfe2e5; */
+	border-left:4px solid #53e873;
+	
+    padding: 0 15px;
+    color: #777777;
+	
+	
+
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+	color: orange;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>iec-61850</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='iec-61850'><span>iec-61850</span></h1><p><strong><span>写在前面</span></strong><span>，基于国内关于iec61850标准的实践实在少的可怜，博主恰好从事过这个规约的数据接入开发，所以本着开源的精神写下这篇博客，希望能对国内生态优化提供一点微不足道的的帮助</span></p><footer>
+  <p>Copyright (C) 2023 wukezeng </p>
+  <p>This document is released under the <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GNU General Public License v3.0</a>.</p>
+</footer><p>&nbsp;</p><h2 id='引入'><span>引入</span></h2><p><span>国外一个网站对这个标准有这么一个有意思的介绍：</span></p><blockquote><p><span>When people are speaking of IEC 61850, they may speak of very different aspects of IEC 61850, which may lead to some confusion. For instance, IEC 61850 is not just for Substation Automation, but is now expanded to Distributed Energy Resources, Distribution Automation, Hydro and Gas Plants, Wind Power Plants (via IEC 61400-25), and most recently, Electric Vehicles (see </span><a href='https://iec61850.dvl.iec.ch/what-is-61850/targeted-markets'><span>Targeted Markets</span></a><span>).</span></p><p><span>IEC 61850 is much more than a communication protocol, and user may benefits of the highest value of IEC 61850 even without having in mind the use of the communication aspects of the standard</span></p></blockquote><p><span>翻译过来就是：</span></p><blockquote><p><span>当人们谈论 IEC 61850 时，他们可能会谈论 IEC 61850 非常不同的方面，这可能会导致一些混乱。例如，IEC 61850 不仅适用于变电站自动化，而且现已扩展到分布式能源、配电自动化、水力和天然气发电厂、风力发电厂（通过 IEC 61400-25），以及最近的电动汽车。</span></p><p><span>IEC 61850 不仅仅是一种通信协议，即使用户不考虑标准的通信方面的使用，也可以从 IEC 61850 的</span><strong><span>最高价值中受益</span></strong></p></blockquote><p>&nbsp;</p><h2 id='规约标准介绍'><span>规约标准介绍</span></h2><p><span>我们将</span><strong><span>基于openmuc的libiec61850依赖</span></strong><span>进行讲解，如果读者用的是其他语言或者依赖也不影响理解这里的解析，标准是通用的；但在我们深入如何使用这个包之前，我们需要事先了解一下这个规约的规则是什么，然后我们才能了解这个宏大的世界是怎么运转的。当然，本文不对标准做过多的分析，只起一个引导的作用（其实深的我也不会）</span></p><p><span>如果想了解更多的话，可以到</span><a href='https://www.amobbs.com/thread-5750758-1-1.html'><span>DL_T860.1-10(IEC 61850)全套完整中文标准 (amobbs.com 阿莫电子技术论坛)</span></a><span>下载文档，自己深入学习即可</span></p><h3 id='树结构'><span>树结构</span></h3><p><span>IEC61850的数据结构是一颗树，我们可基于scd文件举例，如：</span></p><p><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222215135355.png" alt="image-20231222215135355" style="zoom:67%;" /></p><p><span>上图的AP为：访问点（Access point）；LD：逻辑设备(Logic Device)；LN：逻辑节点(Logic Node)</span></p><p><span>DOI：数据对象实例(Instantiated DATA Object(DATA)</span></p><p><span>DAI：数据属性实例（Instantiated Data Attribute）</span></p><p><span>具体的自己参考：</span></p><p><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222214058239.png" alt="image-20231222214058239" style="zoom:67%;" /><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222214107656.png" alt="image-20231222214107656" style="zoom:67%;" /></p><p><span> </span><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222214138510.png" alt="image-20231222214138510" style="zoom:67%;" /></p><p><span> </span><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222214218669.png" alt="image-20231222214218669" style="zoom:67%;" /></p><p><span> </span><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222214234298.png" alt="image-20231222214234298" style="zoom:67%;" /></p><p><span> </span><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222214252058.png" alt="image-20231222214252058" style="zoom:67%;" /></p><p><span>注意一下FC--功能限制，后面会经常出现</span></p><p>&nbsp;</p><p><span>我们查询数据就是从根节点一层一层往下找即可，如：</span></p><p><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222215215543.png" alt="image-20231222215215543" style="zoom:67%;" /></p><p><span>从根节点一层一层向下找子节点，访问：S1.LD0.RSYN1.DifAngClc.mag.f，就能获取到角差状态值的值，这个值类型为FLOAT32</span></p><p><span>其他节点也是同理，往下找需要的子节点即可</span></p><p>&nbsp;</p><h3 id='节点映射'><span>节点映射</span></h3><p><span>从scd文件导出得到类似于点表文件的东西：</span></p><p><img src="C:\Users\wkz\AppData\Roaming\Typora\typora-user-images\image-20231222215701946.png" alt="image-20231222215701946" style="zoom:67%;" /></p><p><span>还是以角差状态值为例，它的值为：C_T2201XLD0/RSYN1$MX$DifAngClc$mag$f</span></p><p><span>拆解为：C_T2201X  +  LD0 + RSYN1 + MX + DifAngClc + mag + f</span></p><p><span>C_T2201X为设备名称，即主变高压侧测控，文章开头那张图顶部就有写</span></p><p><span>其余除了MX均是刚刚提到的节点</span></p><p><span>MX为FC 功能限制（上上上图有提及），MX含义为测量值，如电压值之类的</span></p><p><span>LD0/LLN0.dsAin1为数据集名称，后续有用，先略去</span></p><p>&nbsp;</p><h2 id='规约实践---iec-61850概念重点）'><span>规约实践 - IEC 61850概念（重点）</span></h2><p><span>导入依赖：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="pom"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="pom"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;dependency&gt;</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  &lt;groupId&gt;org.openmuc&lt;/groupId&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  &lt;artifactId&gt;openiec61850&lt;/artifactId&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  &lt;version&gt;1.7.0&lt;/version&gt;</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;">&lt;/dependency&gt;</span></pre></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 115px;"></div><div class="CodeMirror-gutters" style="display: none; height: 115px;"></div></div></div></pre><p><span>规约实现分为客户端和服务端，在实际生产中，我们一般扮演的都是客户端向服务端发起请求的角色，在此之前我们先了解一些规约实践需要了解的一些概要：</span></p><h3 id='data-model---数据模型'><span>Data Model - 数据模型</span></h3><p><span>IEC 61850 服务器包含一个</span><strong><span>树状数据模型</span></strong><span>，该模型的叶子包含可由客户端访问的数据（整数、布尔值、字符串等）。客户端还可以从服务器检索整个数据模型。</span></p><p><span>最上面的模型节点称为“服务器”。在 IEC61850bean 中，它是 ServerModel 类型的对象。服务器节点包含 1..n 个逻辑设备 (LD)。一个逻辑设备可以包含 1..n 个逻辑节点 (LN)。一个逻辑节点可以包含 1..n 个数据对象。在 IEC61850bean 中，逻辑节点（LN）不包含完整的数据对象，而是包含所谓的功能约束数据对象 (FCDO)。FCDO 是按功能约束分割的数据对象。FCDO可以包含其他FCDO、数组、构造的数据属性和/或基本数据属性的组合。</span></p><p><span>IEC61850bean 中服务器模型的所有节点都属于以下七种类型之一：</span></p><ul><li><p><span>ServerModel（服务器模型）</span></p></li><li><p><span>LogicalDevice（LD，逻辑设备）</span></p></li><li><p><span>LogicalNode</span></p></li><li><p><span>FcDataObject</span></p></li><li><p><span>Array</span></p></li><li><p><span>ConstructedDataAttribute</span></p></li><li><p><span>BasicDataAttribute</span></p></li></ul><p><span>它们都实现了 ModelNode（直译过来就是模型节点，也就是我们需要获取的数据节点） 接口。节点 FcDataObject、Array、ConstructedDataAttribute 和 BasicDataAttribute 也实现称为 FcModelNode 的接口，因为它们在标准中被视为功能约束数据。IEC 61850 的许多服务只能应用于功能约束数据（例如GetDataValues 和SetDataValues）。</span></p><p><span>在对客户端进行编程时，您可以</span><strong><span>通过来自服务器设备的 ClientAssociation.retrieveModel 或通过来自 SCL 文件的 SclParser.parse 获得服务器模型的副本</span></strong><span>（这个后面会提及，这个很重要）。使用第二种方法时（即通过SCL文件获取副本），必须使用 ClientAssociation.setServerModel 在客户端关联中设置模型。对服务器进行编程时，您可以通过 ServerSap.getModelCopy() 函数获取服务器模型的副本。</span></p><p><span>然后，您可以使用多个函数浏览模型：</span></p><ul><li><p><span>ServerModel.findModelNode(ObjectReference objectReference, Fc fc) 将搜索具有给定引用和功能约束的子节点。</span></p></li><li><p><span>ModelNode.getChild(String name, Fc fc) 将返回具有给定名称和功能约束的子节点。</span></p></li><li><p><span>ModelNode.getBasicDataAttributes() 将返回模型节点的所有</span><strong><span>叶子节点</span></strong><span>（基本数据属性）的列表。</span></p></li></ul><p><strong><span>补充一点</span></strong><span>：模型副本其实就是刚刚提到的树状数据结构，我们需要提前获取到模型副本后，才能直到服务端能提供什么数据</span></p><p>&nbsp;</p><h3 id='client---客户端'><span>Client - 客户端</span></h3><p><span>如果您想要连接到 IEC 61850 服务器，您应该首先创建 ClientSap（SAP = 服务访问点）实例并根据您的需要对其进行配置。然后使用 Associate() 方法建立与服务器的关联</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">ClientSap</span> <span class="cm-variable">clientSap</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ClientSap</span>();</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">association</span> <span class="cm-operator">=</span> <span class="cm-variable">clientSap</span>.<span class="cm-variable">associate</span>(<span class="cm-variable">remoteAddress</span>, <span class="cm-variable">remotePort</span>,</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">authenticationParameter</span>, <span class="cm-variable">localAdress</span>, <span class="cm-variable">localPort</span>, <span class="cm-variable">eventListener</span>);</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">Runtime</span>.<span class="cm-variable">getRuntime</span>().<span class="cm-variable">addShutdownHook</span>(<span class="cm-keyword">new</span> <span class="cm-variable">Thread</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-meta">@Override</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-keyword">public</span> <span class="cm-variable-3">void</span> <span class="cm-variable">run</span>() {</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">close</span>();</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  }</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp;  });</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 230px;"></div><div class="CodeMirror-gutters" style="display: none; height: 230px;"></div></div></div></pre><p><span>remoteAddress与remotePort：即你要连接的远程主机IP、Port；</span></p><p><span>authenticationParameter：一般为null即可</span></p><p><span>localAdress, localPort：为你本地连接的IP与Port。</span></p><p><strong><span>注意</span></strong><span>：这一般填的不是你电脑的ip，而是服务商给你的白名单IP，你只有使用该IP才能连接到服务端。Port的值一般填0，填其他的端口可能会有冲突</span></p><p><span>eventListener：事件监听器</span></p><p><span>此时客户端就可正常连接上，并在需要的时候自动关闭了</span></p><p>&nbsp;</p><h3 id='server---服务端'><span>Server - 服务端</span></h3><p><span>首先使用 ServerSap.getSapsFromSclFile() 方法获取 ServerSaps 列表。此方法从给定的 ICD 文件读取 SAP。获取您想要运行的 ServerSap 并根据您的需要对其进行配置（例如设置要侦听的端口）。ServerSap 包含 ICD 文件中定义的完整设备模型。使用 getModelCopy() 方法检索它的副本。使用 startListening() 告诉 ServerSap 开始侦听配置的端口。这是一个非阻塞函数。</span></p><p><span>这个是用来自己本地模拟服务端的情况用的：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="java"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.51875px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation"><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">serverSap</span> <span class="cm-operator">=</span> <span class="cm-keyword">new</span> <span class="cm-variable">ServerSap</span>(<span class="cm-variable">port</span>, <span class="cm-number">0</span>, <span class="cm-atom">null</span>, <span class="cm-variable">SclParser</span>.<span class="cm-variable">parse</span>(<span class="cm-variable">sclFilePath</span>).<span class="cm-variable">get</span>(<span class="cm-number">0</span>), <span class="cm-atom">null</span>);</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">serverSap</span>.<span class="cm-variable">setPort</span>(<span class="cm-variable">port</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">serverSap</span>.<span class="cm-variable">startListening</span>(<span class="cm-keyword">this</span>);</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-variable">serversServerModel</span> <span class="cm-operator">=</span> <span class="cm-variable">serverSap</span>.<span class="cm-variable">getModelCopy</span>(); <span class="cm-comment">// 获取模型副本</span></span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 92px;"></div><div class="CodeMirror-gutters" style="display: none; height: 92px;"></div></div></div></pre><p><span>这种是来让你本地模拟服务端与客户端交互的情况的，加深你自己对其的了解，这里只简单提示一下。你可以到GitHub官网下载源码，里面有提供相关样例</span></p><p><span>实际生产中，服务端不需我们提供，我们只是作为客户端与其交互而已</span></p><h3 id='dataset---数据集'><span>DataSet - 数据集</span></h3><p><span>数据集（DS）形成一组/一组数据。数据集可用于使用单个请求/响应消息交换一次读取或写入多个数据对象/数据属性。用于此目的的服务是 GetDataSetValues 和 SetDataSetValues。除了数据集服务之外，报告、日志记录、GOOSE 和采样值服务也使用数据集概念。</span></p><p><span>属于数据集一部分的数据属性或数据对象称为数据集的成员。只有功能约束数据才可以是数据集的成员。</span></p><p><span>IEC 61850 标准定义了五种与数据集相关的 ASCI 服务：</span></p><ul><li><p><em><span>GetDataSetValues</span></em><span>获取数据集所有成员的值。</span></p></li><li><p><em><span>SetDataSetValues</span></em><span>设置数据集所有成员的值。</span></p></li><li><p><em><span>CreateDataSet</span></em><span>动态创建新的数据集。</span></p></li><li><p><em><span>DeleteDataSet</span></em><span>删除已创建的数据集。</span></p></li><li><p><em><span>GetDataSetDirectory</span></em><span>获取服务器中所有现有数据集的列表</span></p></li></ul><p><span>存在两种类型的数据集：</span></p><ul><li><p><em><span>持久数据集</span></em><span>- 它们具有 LDName/LNName.DataSetName 格式的引用。它们对所有客户都是可见的。持久数据集可以在SCL文件中预先配置。在这种情况下，它们无法被删除。持久数据集也可以由客户端动态创建。在这种情况下，它们稍后可能会再次被删除。一旦服务器停止，动态创建的数据集将被自动删除。</span></p></li><li><p><em><span>非持久数据集</span></em><span>- 它们具有格式 @datasetname 的引用。它们仅对通过 CreateDataSet 服务创建它的客户端可见。这些数据集仅在协会开放时存在。</span></p></li></ul><h3 id='report---报告重点）'><span>Report - 报告（重点）</span></h3><p><strong><span>写在前面</span></strong><span>，设置报告可以实现服务端数据的自动响应，即客户端扮演等待数据更新的角色，而非主动请求数据的一方</span></p><p><span>报告允许服务器根据事件发送数据，而无需客户端明确请求。发送哪些数据以及导致报告的事件是通过所谓的报告控制块 (RCB) 进行配置的。</span></p><p><span>该标准区分两种类型的报告：缓冲报告和非缓冲报告。使用缓冲报告，服务器会缓冲报告，以防与客户端的连接中断。这样，可以在客户端再次连接后发送报告。缓冲报告是通过缓冲报告控制块（BRCB）配置的。无缓冲报告是通过无缓冲报告控制块 (URCB) 配置的。</span></p><p><span>RCB 位于服务器数据模型（即服务器的ICD/SCL 文件）的逻辑节点内。它们是固定的，</span><strong><span>无法在运行时删除或添加</span></strong><span>。一旦客户端注册接收报告（通过启用它），RCB 就会被阻止。这意味着单个 RCB 无法并行向多个客户端发送报告。所以，在代码实践中，如若设置不当，直接enableReport的话，服务端会响应有其他服务占用含义的错误。</span></p><p><span>RCB 始终与特定数据集相关联，该数据集必须与 RCB 位于同一逻辑节点中。如果发生任何配置的事件，将报告数据集成员的子集。RCB 的关联数据集可以由客户端在运行时动态更改。</span></p><p><span>RCB 位于服务器模型树中的</span><strong><span>逻辑节点</span></strong><span>中。因此，RCB 的引用采用 LogicalDeviceName/LogicalNodeName.RCBName 的形式。尽管RCB只能引用与RCB本身位于同一逻辑节点中的数据集，但它们仍然可以监视来自其他逻辑节点的数据，因为数据集的成员可以位于其他逻辑节点中。</span></p><p><span>以下事件可能导致服务器发送报告：</span></p><ul><li><p><span>客户发出一般性询问。</span></p></li><li><p><span>作为关联数据集一部分的数据属性发生更改或更新。</span></p></li><li><p><span>通过设置 RCB 的完整性周期，可以</span><strong><span>定期</span></strong><span>发送报告。</span></p></li></ul><p><span>这些事件之一是否确实导致发送报告是通过 RCB 配置的。</span></p><p><span>Report control block（报告</span><strong><span>控制</span></strong><span>块）包含以下字段：</span></p><ul><li><p><span>配置字段。仅当 RCB 尚未启用或被其他客户端保留时才能写入它们：</span></p><ul><li><p><em><span>RptID</span></em><span> - 报告 ID 标识 RCB。如果未设置，则等于 RCB 参考。RptID 将随每个报告一起发送，以便客户可以识别负责该报告的 RCB。</span></p></li><li><p><em><span>DatSet</span></em><span> - 与此 RCB 关联的数据集的引用。它必须与 RCB 位于同一逻辑节点。每当配置的事件发生时，就会报告该数据集的成员。RCB 中设置的数据集引用必须包含美元符号而不是点，以将逻辑节点与数据集名称分隔开，例如：“LDevice1/LNode$DataSetName”</span></p></li><li><p><em><span>OptFlds</span></em><span> - 位串，其中每个位指示可选字段是否包含在由该 RCB 引起的报告中。存在以下可选字段：序列号、报告时间戳、包含原因、数据集名称、数据引用、缓冲区溢出、条目 ID、分段和配置修订。对于 URCB，缓冲区溢出和 EntryID 的值将被忽略。</span></p></li><li><p><em><span>BufTm</span></em><span> - 如果发生导致报告的事件，服务器将等待</span><em><span>BufTm</span></em><span>毫秒来处理其他事件。由于该时间跨度内的事件而要报告的所有数据都在单个报告中发送。</span></p></li><li><p><em><span>TrgOps</span></em><span> - 指定哪些事件将触发报告。可能发生的事件有：</span></p><ul><li><p><span>数据更改 (dchg)</span></p></li><li><p><span>质量变化（qchg）</span></p></li><li><p><span>数据更新（dupd）</span></p></li><li><p><span>完整性 - 如果启用，服务器将定期向客户端发送完整性报告。完整性报告将包含引用数据集所有成员的当前值。</span></p></li><li><p><span>一般审讯（GI）。</span></p></li></ul></li><li><p><em><span>IntgPd</span></em><span> - 完整性周期指定定期发送完整性报告的间隔（以毫秒为单位）。</span></p></li><li><p><em><span>PurgeBuf</span></em><span>（仅限 BRCB 的一部分，而非 URCB）-</span></p></li><li><p><em><span>EntryID</span></em><span>（仅限 BRCB 的一部分，而非 URCB）-</span></p></li></ul></li><li><p><span>信息字段： 只能读取：</span></p><ul><li><p><em><span>SqNum</span></em><span> - RCB 的当前序列号。发送报告后，RCB 会将序列号加一。</span></p></li><li><p><em><span>ConfRev</span></em><span> - 配置修订是一个计数器，表示引用的数据集更改的次数。</span></p></li><li><p><em><span>所有者</span></em><span>- 应等于保留 RCB 的客户端的 IP。如果 RCB 未保留，则应为 NULL（即空字符串）。</span></p></li><li><p><em><span>TimeOfEntry</span></em><span>（仅限 BRCB 的一部分，不包括 URCB）</span></p></li></ul></li><li><p><span>功能字段：可以读取或写入 RCB 的以下字段来执行功能：</span></p><ul><li><p><em><span>保留</span></em><span>（仅限 URCB 的一部分，而非 BRCB） - 在对 RCB 进行任何操作之前，客户端应通过将此字段设置为 true 来保留它。如果设置成功，RCB 将专门为此客户端保留。启用尚未保留的 RCB 会隐式保留它。</span></p></li><li><p><em><span>ResvTms</span></em><span>（仅部分 BRCB，而非 URCB）- BRCB 的此属性是可选的。如果不存在，则通过简单地启用它来</span><strong><span>保留控制块</span></strong><span>。ResvTms 值为 -1 表示控制块是通过配置为一组特定客户端保留的。值为 0 表示 BRCB 未被保留。客户端可以通过写入大于0的值来保留控制块。该值表示在关联关闭或中断后保留应保持的秒数。</span></p></li><li><p><em><span>RptEna</span></em><span> - 通过将此变量设置为 true，将启用报告。请</span><strong><span>注意</span></strong><span>，只要启用报告，更改/写入 RCB 和配置字段就会失败。</span></p></li><li><p><em><span>GI</span></em><span> - 一般审讯。将此参数设置为 true 将启动向客户端发送报告。该报告将包含关联数据集的所有数据。发送报告后，服务器将自动将 GI 参数重置为 false。</span></p></li></ul></li></ul><p><strong><span>报告</span></strong><span>始终包含以下信息字段：</span></p><ul><li><p><em><span>RptID</span></em><span> - 报告 ID 标识导致生成报告的 RCB。它等于 RCB 的 RptID 字段。</span></p></li><li><p><em><span>OptFlds</span></em><span> - 等于相应 RCB 的 OptFlds 字段。</span></p></li><li><p><em><span>SqNum</span></em><span>（可选，如果 OptFlds.SequenceNumber 为 true，则包含）- 报告的序列号。在发送时，它等于相应 RCB 的 SqNum 字段。</span></p></li><li><p><em><span>TimeOfEntry</span></em><span>（可选，如果 OptFlds.report-timestamp 为 true，则包含）- 指定创建条目 ID 的时间。</span></p></li><li><p><em><span>DatSet</span></em><span>（可选，如果 OptFlds.dataset-name 为 true，则包含）- 在此报告中发送其数据的数据集的引用。</span></p></li><li><p><em><span>BufOvfl</span></em><span>（可选，仅当它是缓冲报告且 OptFlds.buffer-overflow 为 true 时才包含）- 指示服务器由于缓冲区溢出而丢失报告条目。仅适用于缓冲报告。</span></p></li><li><p><em><span>EntryID</span></em><span>（可选，仅当它是缓冲报告且 OptFlds.entryID 为 true 时才包含） - 条目标识 ToDo</span></p></li><li><p><em><span>ConfRev</span></em><span>（可选，仅当 OptFlds.conf-rev 为 true 时才包含） - 它等于相应 RCB 的 ConfRev 字段。</span></p></li><li><p><em><span>SubSqNum</span></em><span>（可选，如果 OptFlds.segmentation 为 true，则包含在内）- 如果长报告不适合一条消息，则应将单个报告分为多个子报告。每个子报告应具有相同的序列号和唯一的 SubSqNum。</span></p></li><li><p><em><span>MoreSegmentsFollow</span></em><span>（可选，如果 OptFlds.segmentation 为 true，则包含）- 指示后面有更多具有相同 SqNum 的子报表。</span></p></li><li><p><em><span>Inclusion Bitstring</span></em><span> - 长度等于引用数据集的数据成员数量的位串。每个比特指示相应的数据成员是否包括在报告中。</span></p></li><li><p><em><span>Data-references</span></em><span> （可选，如果 OptFlds.data-reference 为 true，则包含）- 报告的数据集成员的引用。</span></p></li><li><p><em><span>Values</span></em><span>- 报告的数据集成员的值。</span></p></li><li><p><em><span>Reason Codes</span></em><span>（可选，如果 OptFlds.reason-for-inclusion 为 true，则包含）- 原因代码指示每个报告值的报告原因。可能的原因包括数据更改、质量更改、数据更新、完整性、一般询问和应用程序触发。对于单个报告值来说，可能存在多种原因。</span></p></li></ul><p><span>想要从某个 RCB 接收报告的客户端通常会首先尝试保留该 RCB。如果成功，他将按照自己的意愿配置 RCB。最后他将启用报告功能。</span></p><p><span>启动设置Report示例：</span></p><pre class="md-fences md-end-block ty-contain-cm modeLoaded" spellcheck="false" lang="Java" style="break-inside: unset;"><div class="CodeMirror cm-s-inner cm-s-null-scroll CodeMirror-wrap" lang="java"><div style="overflow: hidden; position: relative; width: 3px; height: 0px; top: 9.35937px; left: 8px;"><textarea autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" style="position: absolute; bottom: -1em; padding: 0px; width: 1000px; height: 1em; outline: none;"></textarea></div><div class="CodeMirror-scrollbar-filler" cm-not-content="true"></div><div class="CodeMirror-gutter-filler" cm-not-content="true"></div><div class="CodeMirror-scroll" tabindex="-1"><div class="CodeMirror-sizer" style="margin-left: 0px; margin-bottom: 0px; border-right-width: 0px; padding-right: 0px; padding-bottom: 0px;"><div style="position: relative; top: 0px;"><div class="CodeMirror-lines" role="presentation"><div role="presentation" style="position: relative; outline: none;"><div class="CodeMirror-measure"><pre><span>xxxxxxxxxx</span></pre></div><div class="CodeMirror-measure"></div><div style="position: relative; z-index: 1;"></div><div class="CodeMirror-code" role="presentation" style=""><div class="CodeMirror-activeline" style="position: relative;"><div class="CodeMirror-activeline-background CodeMirror-linebackground"></div><div class="CodeMirror-gutter-background CodeMirror-activeline-gutter" style="left: 0px; width: 0px;"></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span class="cm-keyword">static</span> <span class="cm-variable-3">void</span> <span class="cm-def">startURcb</span>(<span class="cm-variable">ClientAssociation</span> <span class="cm-variable">association</span>, <span class="cm-variable">Urcb</span> <span class="cm-variable">urcb</span>, <span class="cm-variable-3">String</span> <span class="cm-variable">rcbName</span>) <span class="cm-keyword">throws</span> <span class="cm-variable">ServiceError</span>, <span class="cm-variable">IOException</span> {</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">getRcbValues</span>(<span class="cm-variable">urcb</span>); <span class="cm-comment">// 要获取的urcb块</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">BdaBoolean</span> <span class="cm-variable">resv</span> <span class="cm-operator">=</span> (<span class="cm-variable">BdaBoolean</span>) <span class="cm-variable">urcb</span>.<span class="cm-variable">getChild</span>(<span class="cm-string">"Resv"</span>); <span class="cm-comment">// 获取Resv子节点</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">reserveUrcb</span>(<span class="cm-variable">urcb</span>); <span class="cm-comment">// 启动resv</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">getDataValues</span>(<span class="cm-variable">resv</span>); <span class="cm-comment">// 可debug校验一下resv是否由false变为true</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getRptId</span>().<span class="cm-variable">setValue</span>(<span class="cm-variable">rcbName</span>); <span class="cm-comment">// 设置RptId，前面说过这个值是必要的，但rcbName可以自定义，含义上面也说过了，这里不再赘述</span></span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getTrgOps</span>().<span class="cm-variable">setGeneralInterrogation</span>(<span class="cm-atom">false</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getTrgOps</span>().<span class="cm-variable">setDataUpdate</span>(<span class="cm-atom">false</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getTrgOps</span>().<span class="cm-variable">setDataChange</span>(<span class="cm-atom">false</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">setRcbValues</span>(<span class="cm-variable">urcb</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>, <span class="cm-atom">true</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">getRcbValues</span>(<span class="cm-variable">urcb</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">reserveUrcb</span>(<span class="cm-variable">urcb</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">cancelUrcbReservation</span>(<span class="cm-variable">urcb</span>);</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">enableReporting</span>(<span class="cm-variable">urcb</span>); </span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">startGi</span>(<span class="cm-variable">urcb</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getTrgOps</span>().<span class="cm-variable">setGeneralInterrogation</span>(<span class="cm-atom">true</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getTrgOps</span>().<span class="cm-variable">setDataChange</span>(<span class="cm-atom">true</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">urcb</span>.<span class="cm-variable">getIntgPd</span>().<span class="cm-variable">setValue</span>(<span class="cm-number">5000</span>);</span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">disableReporting</span>(<span class="cm-variable">urcb</span>);</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"><span cm-text="" cm-zwsp="">
+</span></span></pre><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">List</span><span class="cm-operator">&lt;</span><span class="cm-variable">ServiceError</span><span class="cm-operator">&gt;</span> <span class="cm-variable">serviceErrors</span> <span class="cm-operator">=</span></span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">setRcbValues</span>(<span class="cm-variable">urcb</span>,</span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-atom">false</span>, <span class="cm-atom">false</span>, <span class="cm-atom">false</span>, <span class="cm-atom">false</span>, <span class="cm-atom">true</span>,</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-atom">true</span>, <span class="cm-atom">false</span>, <span class="cm-atom">false</span>);</span></pre></div><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">enableReporting</span>(<span class="cm-variable">urcb</span>); <span class="cm-comment">// 正式启用report</span></span></pre></div><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp; &nbsp; &nbsp; &nbsp;<span class="cm-variable">association</span>.<span class="cm-variable">startGi</span>(<span class="cm-variable">urcb</span>);</span></pre><div class="" style="position: relative;"><pre class=" CodeMirror-line " role="presentation"><span role="presentation" style="padding-right: 0.1px;"> &nbsp;  }</span></pre></div></div></div></div></div></div><div style="position: absolute; height: 0px; width: 1px; border-bottom: 0px solid transparent; top: 760px;"></div><div class="CodeMirror-gutters" style="display: none; height: 760px;"></div></div></div></pre><p>&nbsp;</p></div></div>
+</body>
+</html>
